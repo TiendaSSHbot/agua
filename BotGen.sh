@@ -5,7 +5,29 @@ meu_ip_fun() {
     MIP2=$(wget -qO- ipv4.icanhazip.com)
     [[ "$MIP" != "$MIP2" ]] && IP="$MIP2" || IP="$MIP"
 }
-
+ofus() {
+    unset server
+    server=$(echo ${txt_ofuscatw} | cut -d':' -f1)
+    unset txtofus
+    number=$(expr length $1)
+    for ((i = 1; i < $number + 1; i++)); do
+        txt[$i]=$(echo "$1" | cut -b $i)
+        case ${txt[$i]} in
+        ".") txt[$i]="F" ;;
+        "F") txt[$i]="." ;;
+        "3") txt[$i]="@" ;;
+        "@") txt[$i]="3" ;;
+        "5") txt[$i]="9" ;;
+        "9") txt[$i]="5" ;;
+        "6") txt[$i]="P" ;;
+        "P") txt[$i]="6" ;;
+        "L") txt[$i]="R" ;;
+        "R") txt[$i]="L" ;;
+        esac
+        txtofus+="${txt[$i]}"
+    done
+    echo "$txtofus" | rev
+}
 #check_ip
 #function_verify
 [[ -e /etc/newadm ]] && BASICINST="$(cat /etc/newadm)" || BASICINST="menu message.txt usercodes C-SSR.sh squid.sh squid.sh dropbear.sh proxy.sh openvpn.sh ssl.sh python.py shadowsocks.sh Shadowsocks-libev.sh Shadowsocks-R.sh v2ray.sh slowdns.sh budp.sh sockspy.sh PDirect.py PPub.py PPriv.py POpen.py PGet.py ADMbot.sh apacheon.sh tcp.sh fai2ban.sh blockBT.sh ultrahost speed.py squidpass.sh ID extras.sh"
@@ -128,30 +150,7 @@ fun_list() {
     at now +2 hours <<<"rm -rf ${DIR}/${KEY} && rm -rf ${DIR}/${KEY}.name"
 }
 
-ofus() {
-    unset server
-    server=$(echo ${txt_ofuscatw} | cut -d':' -f1)
-    unset txtofus
-    number=$(expr length $1)
-    for ((i = 1; i < $number + 1; i++)); do
-        txt[$i]=$(echo "$1" | cut -b $i)
-        case ${txt[$i]} in
-        ".") txt[$i]="F" ;;
-        "F") txt[$i]="." ;;
-        "3") txt[$i]="@" ;;
-        "@") txt[$i]="3" ;;
-        "5") txt[$i]="9" ;;
-        "9") txt[$i]="5" ;;
-        "6") txt[$i]="P" ;;
-        "P") txt[$i]="6" ;;
-        "L") txt[$i]="R" ;;
-        "R") txt[$i]="L" ;;
-        esac
-        txtofus+="${txt[$i]}"
-    done
-    echo "$txtofus" | rev
-}
-
+source $(pwd)/ofus
 menu_print() {
     [[ ! -z ${callback_query_message_chat_id[$id]} ]] && var=${callback_query_message_chat_id[$id]} || var=${message_chat_id[$id]}
 
