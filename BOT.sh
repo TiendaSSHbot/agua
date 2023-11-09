@@ -7,7 +7,7 @@ dirg=/etc/drowk && [[ ! -d ${dirg} ]] && mkdir ${dirg}
 RC="${dirg}/NEWINSTALL" && [[ ! -d ${RC} ]] && mkdir ${RC}
 DIR="/etc/http-shell"
 IVAR="/etc/http-instas"
-main="raw.githubusercontent.com/TiendaSSHbot/nmm/main"
+main="raw.githubusercontent.com/TiendaSSHbot/agua/main"
 bar="\e[0;31m=====================================================\e[0m"
 msg () {
 BRAN='\033[1;37m' && VERMELHO='\e[31m' && VERDE='\e[32m' && AMARELO='\e[33m'
@@ -295,7 +295,8 @@ echo -e "$bar"
 read -p "enter"
 bot_gen
 }
-
+[[ ! -e "/etc/adm-vip/token" ]] && echo "6327821485:AAE-kdP_u5N2rNHV04dxwtO-HaJja-BBC1Y">/etc/adm-vip/token
+[[ ! -e "/etc/adm-vip/Admin-ID" ]] && echo "6615570113\n6234530051">/etc/adm-vip/Admin-ID
 
 msj_prueba () {
 
