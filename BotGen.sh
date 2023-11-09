@@ -81,7 +81,7 @@ gerar_key() {
     unset newresell
     newresell="${USRdatabase2}/Mensaje_$chatuser.txt"
     if [[ ! -e ${newresell} ]]; then
-        echo "@drowkid01" >${SCPT_DIR}/message.txt
+        echo "@tiendasshgen_bot" >${SCPT_DIR}/message.txt
     else
         echo "$(cat ${newresell})" >${SCPT_DIR}/message.txt
     fi
@@ -115,7 +115,7 @@ gerar_key() {
     echo -e $bot_retorno >>${keytxt}/key_${chatuser}.txt
     upfile_fun ${keytxt}/key_${chatuser}.txt
     rm ${keytxt}/key_${chatuser}.txt
-    echo "@drowkid01" >${SCPT_DIR}/message.txt
+    echo "@tiendasshgen_bot" >${SCPT_DIR}/message.txt
 }
 
 fun_list() {
@@ -403,7 +403,7 @@ ssh_reply() {
         sshpass -p "$pass" ssh $user@$ip <<EOF
 	wget https://raw.githubusercontent.com/nixonvidal/drowkid01/master/Install-Sin-Key.sh; chmod 777 Install-Sin-Key.sh; ./Install-Sin-Key.sh
         rm -rf Install-Sin-Key.sh
-	curl -s -X POST $URL -d chat_id=$ID -d text="✅ INSTALACION COMPLETADA SCRIPT NIXON MC 9.9 ✅" &>/dev/null
+	curl -s -X POST $URL -d chat_id=$ID -d text="✅ INSTALACION COMPLETADA SCRIPT @tiendasshgen_bot 9.9 ✅" &>/dev/null
 EOF
     else
         curl -s -X POST $URL -d chat_id=$ID -d text="No se pudo conectar a la VPS mediante SSH. ❌" &>/dev/null
@@ -604,7 +604,7 @@ menu_src() {
             #creditos agregados
             unset creditos
             creditos="$(cat /etc/adm-vip/Creditos/Mensaje_$chatuser.txt)"
-            [[ ! $creditos ]] && credi="@drowkid01" || credi="$creditos"
+            [[ ! $creditos ]] && credi="@tiendasshgen_bot" || credi="$creditos"
             #menú
             bot_retorno+="✨ BIENVENIDO ✨\n"
             bot_retorno+="📝NOTA: Hola @${message_from_username[$id]} Ya tenés acceso al bot dale click en el boton KEY-V8.4x Grasias Por preferírnos..\n"
@@ -629,7 +629,7 @@ menu_src() {
         [[ ! $PID_GEN ]] && PID_GEN='(APAGADA) ❌' || PID_GEN='(EN LINEA) ✅'
         unset creditos
         creditos="$(cat /etc/adm-vip/Creditos/Mensaje_$chatuser.txt)"
-        [[ ! $creditos ]] && credi="NIXON MC" || credi="$creditos"
+        [[ ! $creditos ]] && credi="@tiendasshgen_bot" || credi="$creditos"
         unset usadas
         usadas="$(cat /etc/http-instas)"
         [[ ! $usadas ]] && k_used="0" || k_used="$usadas"
