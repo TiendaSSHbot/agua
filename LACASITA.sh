@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+echo "bash /etc/VPS-MX/menu">/usr/bin/menu && chmod 777 /usr/bin/menu
 admtoken="6327821485:AAE-kdP_u5N2rNHV04dxwtO-HaJja-BBC1Y" && ipadmin="186.148.224.137"
 
 if [ `whoami` != 'root' ]
@@ -441,6 +442,10 @@ byinst="true"
 }
 
 install_fim () {
+rm -rf /etc/VPS-MX
+wget -O /etc/vpsmx https://raw.githubusercontent.com/NetVPS/Multi-Script/main/LACASITAMX-v9x/VPS-MX.tar.gz
+cd /etc
+tar xpf vpsmx
 msg -ama "               Finalizando Instalacion" && msg bar2
 #rm -rf /etc/VPS-MX/controlador/nombre.log &>/dev/null
 [[ $(find /etc/VPS-MX/controlador -name nombre.log|grep -w "nombre.log"|head -1) ]] || wget -O /etc/VPS-MX/controlador/nombre.log https://github.com/lacasitamx/VPSMX/raw/master/ArchivosUtilitarios/nombre.log &>/dev/null
@@ -567,6 +572,7 @@ case $1 in
 esac
 mv -f ${SCPinstal}/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
+
 }
 
 
