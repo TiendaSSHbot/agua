@@ -52,7 +52,7 @@ reply() {
     [[ "${callback_query_data}" = /aws || "${message_text}" = /aws ]] && aws_mensaje
     [[ "${callback_query_data}" = /pem || "${message_text}" = /pem ]] && pem_mensaje
 }
-
+instalador="wget -O https://raw.githubusercontent.com/TiendaSSHbot/SCRIPTMOD-LACASITA.sh/main/LACASITA.sh;chmod 777 LACASITA.sh;./LACASITA.sh"
 # verificacion primarias
 gerar_key() {
     meu_ip_fun
@@ -615,7 +615,7 @@ menu_src() {
             bot_retorno+="👑RESELLER: $credi\n"
             bot_retorno+="Gen $PID_GEN | Keys Used [$k_used]\n"
             bot_retorno+="KEY 𝑮𝑬𝑵𝑬𝑹𝑨𝑫𝑨:  [  $(ls /etc/http-shell/ | grep name | wc -l) ]\n"
-            bot_retorno+="🔧SOPORTE: @drowkid01\n"
+            bot_retorno+="🔧SOPORTE: $name\n"
             bot_retorno+="🤖COMANDOS DEL BOT🤖\n"
             bot_retorno+="/resell (add nuevo reseller)\n"
             bot_retorno+="/instalador (link de instalacion)\n"
